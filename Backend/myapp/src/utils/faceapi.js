@@ -35,7 +35,8 @@ async function compare_face(fD) {
             const descriptor = new Float32Array(descriptors);
             const bestMatch = faceMatcher.findBestMatch(descriptor);
             if (bestMatch && bestMatch.distance < 0.5) {
-                return { name: user.name, email: user.email, rollNo: user.rollNo, img: (process.env.HOST)+(user.img).split('public')[1] };
+                const id = user.attendance.length <= 0 ||(user.attendance.length > 0 && user.attendance[user.attendance.length-1].date !== new Date().toLocaleDateString()) ? user._id : null; 
+                return {data:{ name: user.name, email: user.email, rollNo: user.rollNo, img: (process.env.HOST)+(user.img).split('public')[1] }, id};
             }
         }
         return null;

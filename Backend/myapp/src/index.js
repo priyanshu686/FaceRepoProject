@@ -6,7 +6,6 @@ const cors = require('cors');
 const fs = require('fs');
 const { compare_face, loadModels } = require('./utils/faceapi');
 require('./configs/dbconnect')();
-
 const User = require('./modules/User');
 
 app.set('view engine', 'ejs');
@@ -39,14 +38,27 @@ app.post('/login', async(req, res) => {
         return res.status(400).json({ message: 'Please provide face data' });
     }
     try {
-        const result = await compare_face(fD);
-        result.attendance.push({ date: new Date(), status: 'Present' });
-        await result.save();
-        if (result) {
-            return res.status(200).json({ user: result });
+        const {data,id} = await compare_face(fD);
+        const today = new Date();
+        const date = today.toLocaleDateString();
+        await User.findByIdAndUpdate(id, {
+            $push: {
+              attendance: {
+                date: date,
+                status: 'Present'
+              }
+            }
+          }, {
+            new: true,
+            runValidators: true
+          });
+        
+        if (data) {
+            return res.status(200).json({ user: data });
         }
         return res.status(400).json({ message: 'User not found' });
     } catch (error) {
+        // console.log('error')
         return res.status(400).json({ message: error.message });
     }
 });
