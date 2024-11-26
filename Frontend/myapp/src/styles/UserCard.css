@@ -1,0 +1,61 @@
+.Usercard{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 10px;
+
+    img{
+        width: 140px;
+        height: 180px;
+        border-radius: 50%;
+        object-fit: fill;
+        margin-bottom: 10px;
+    }
+
+    h1{
+        font-size: 1.5rem;
+        color: #333;
+        margin-bottom: 10px;
+    }
+
+    h2{
+        font-size: 1.2rem;
+        color: #666;
+        margin-bottom: 10px;
+    }
+
+    p{
+        font-size: 1rem;
+        color: #666;
+        margin-bottom: 10px;
+    }
+
+    button{
+        padding: 10px 20px;
+        border: none;
+        background-color: #333;
+        color: #fff;
+        font-size: 1rem;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    button:hover{
+        background-color: #555;
+    }
+
+    button:active{
+        background-color: #222;
+    }
+
+    button:focus{
+        outline: none;
+    }
+}

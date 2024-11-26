@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        My App
+        <% if (typeof title !== 'undefined') { %>
+            - <%= title %>
+        <% } %>
+    </title>
+</head>
+<body>
+    <header>
+        <div class="header" style="display: flex; flex-direction: row; align-items: center;">
+            <h1>My App</h1><span style="flex-grow: 1;">
+                <% if (typeof title !== 'undefined') { %>
+                    <h3><span>- </span><%= title %></h3>
+                <% } %>
+            </span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/inspect">Inspect</a></li>
+                <li><a href="/status">Status</a></li>
+            </ul>
+        </nav>
+    </header>
+    <% if (typeof page !== 'undefined') { %>
+        <%- include( './pages/' + page + '.ejs' ) %>
+    <% } %>
+</body>
+</html>
