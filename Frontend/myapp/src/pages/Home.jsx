@@ -13,6 +13,9 @@ const Home = () => {
                 <p>Hello, <span>{context.user ? context.user.name : 'Guest'}</span>!</p>
                 <p>We are so glad to have you here. Feel free to explore the website!</p>
             </div>
+            <button type="button">
+                Login
+            </button>
         </div>
     );
 };
