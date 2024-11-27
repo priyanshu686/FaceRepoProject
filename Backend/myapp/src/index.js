@@ -8,28 +8,12 @@ const { compare_face, loadModels } = require('./utils/faceapi');
 require('./configs/dbconnect')();
 const User = require('./modules/User');
 
-app.set('view engine', 'ejs');
-app.set('views', './src/views');
-
 const port = process.env.PORT || 8000;
 app.use(cors());
 app.use(bodyParser.json({ limit: '100mb' }));
 app.use(bodyParser.urlencoded({ extended: true, limit: '100mb' }));
 app.use(express.static('public'));
-app.use(require('./middlewares/logger'));
 loadModels();
-
-app.get('/', async (req, res) => {
-    res.render('index', { title: 'Home', page: 'home' });
-});
-
-app.get('/inspect', (req, res) => {
-    res.render('index', { title: 'Inspect', page: 'inspect' });
-});
-
-app.get('/status', (req, res) => {
-    res.render('index', { title: 'Status', page: 'status' });
-});
 
 app.post('/login', async(req, res) => {
     const { fD } = req.body;
