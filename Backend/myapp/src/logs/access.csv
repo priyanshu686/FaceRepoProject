@@ -1537,6 +1537,7 @@ localhost:3000,/login,POST,2024-11-26 21:05:42 Tue
 localhost:3000,/login,POST,2024-11-26 21:05:42 Tue
 localhost:3000,/login,POST,2024-11-26 21:05:43 Tue
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> aedba3e89f9c747275874e43d414397de332540a
 
 localhost:3000,/favicon.ico,GET,2024-11-27 10:16:54 Wed
@@ -1547,6 +1548,8 @@ localhost:3000,/login,POST,2024-11-27 10:17:05 Wed
 localhost:3000,/login,POST,2024-11-27 10:17:07 Wed
 localhost:3000,/login,POST,2024-11-27 10:17:07 Wed
 =======
+=======
+>>>>>>> 8d94d14d87e149db3f599ea6714ababb2d0cc601
 localhost:3000,/favicon.ico,GET,2024-11-27 10:29:16 Wed
 localhost:3000,/login,POST,2024-11-27 10:29:44 Wed
 localhost:3000,/login,POST,2024-11-27 10:29:45 Wed
@@ -1605,4 +1608,10 @@ localhost:3000,/login,POST,2024-11-27 10:30:50 Wed
 localhost:3000,/login,POST,2024-11-27 10:30:50 Wed
 localhost:3000,/images/67469a12755bb5b49c8c30b7.jpg,GET,2024-11-27 10:30:51 Wed
 localhost:3000,/login,POST,2024-11-27 10:30:52 Wed
+<<<<<<< HEAD
 >>>>>>> ef907c608a5468c28634aba840f2e7c93ae6c204
+=======
+=======
+>>>>>>> aedba3e89f9c747275874e43d414397de332540a
+>>>>>>> 7499b18b84981efe9b9ca39ef4eebbc001cc9b95
+>>>>>>> 8d94d14d87e149db3f599ea6714ababb2d0cc601
