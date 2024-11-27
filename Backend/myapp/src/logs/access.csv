@@ -1249,6 +1249,7 @@ localhost:3000,/login,POST,2024-11-26 10:53:42 Tue
 localhost:3000,/login,POST,2024-11-26 10:53:43 Tue
 localhost:3000,/login,POST,2024-11-26 10:53:45 Tue
 localhost:3000,/login,POST,2024-11-26 10:53:46 Tue
+<<<<<<< HEAD
 localhost:3000,/favicon.ico,GET,2024-11-26 15:51:45 Tue
 localhost:3000,/login,POST,2024-11-26 15:52:04 Tue
 localhost:3000,/login,POST,2024-11-26 15:52:05 Tue
@@ -1518,3 +1519,21 @@ localhost:3000,/login,POST,2024-11-27 10:02:59 Wed
 localhost:3000,/login,POST,2024-11-27 10:03:02 Wed
 localhost:3000,/login,POST,2024-11-27 10:03:03 Wed
 localhost:3000,/login,POST,2024-11-27 10:03:05 Wed
+=======
+localhost:3000,/,GET,2024-11-26 21:01:35 Tue
+localhost:3000,/favicon.ico,GET,2024-11-26 21:01:35 Tue
+localhost:3000,/inspect,GET,2024-11-26 21:01:44 Tue
+localhost:3000,/inspect,GET,2024-11-26 21:01:45 Tue
+localhost:3000,/inspect,GET,2024-11-26 21:01:46 Tue
+localhost:3000,/inspect,GET,2024-11-26 21:01:46 Tue
+localhost:3000,/inspect,GET,2024-11-26 21:01:46 Tue
+localhost:3000,/inspect,GET,2024-11-26 21:04:32 Tue
+localhost:3000,/inspect,GET,2024-11-26 21:04:33 Tue
+localhost:3000,/inspect,GET,2024-11-26 21:04:34 Tue
+localhost:3000,/inspect,GET,2024-11-26 21:04:34 Tue
+localhost:3000,/login,POST,2024-11-26 21:05:40 Tue
+localhost:3000,/login,POST,2024-11-26 21:05:40 Tue
+localhost:3000,/login,POST,2024-11-26 21:05:42 Tue
+localhost:3000,/login,POST,2024-11-26 21:05:42 Tue
+localhost:3000,/login,POST,2024-11-26 21:05:43 Tue
+>>>>>>> aedba3e89f9c747275874e43d414397de332540a
