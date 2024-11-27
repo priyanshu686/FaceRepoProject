@@ -1,11 +1,7 @@
-import React, { Suspense } from "react";
+import React from "react";
 import { useAppContext } from "../configs/AppContext";
 import './Home.css';  
-import { Route, Routes } from "react-router-dom";
-
-// Lazy load Register and Login components
-const Register = React.lazy(() => import("./Register.jsx"));
-const Login = React.lazy(() => import("./Login.jsx"));
+import { Link } from "react-router-dom";
 
 const Home = () => {
     const context = useAppContext();
@@ -17,15 +13,6 @@ const Home = () => {
                 <p>Hello, <span>{context.user ? context.user.name : 'Guest'}</span>!</p>
                 <p>We are so glad to have you here. Feel free to explore the website!</p>
             </div>
-
-            {/* Wrap the Routes inside Suspense to handle lazy loading */}
-            <Suspense fallback={<div>Loading...</div>}>
-                <Routes>
-                    <Route path="/register" element={<Register />} />
-                    <Route path="/login" element={<Login />} />
-                    <Route path="*" element={<div></div>} />
-                </Routes>
-            </Suspense>
         </div>
     );
 };
