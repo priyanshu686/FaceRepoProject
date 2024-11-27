@@ -1536,6 +1536,7 @@ localhost:3000,/login,POST,2024-11-26 21:05:40 Tue
 localhost:3000,/login,POST,2024-11-26 21:05:42 Tue
 localhost:3000,/login,POST,2024-11-26 21:05:42 Tue
 localhost:3000,/login,POST,2024-11-26 21:05:43 Tue
+<<<<<<< HEAD
 >>>>>>> aedba3e89f9c747275874e43d414397de332540a
 
 localhost:3000,/favicon.ico,GET,2024-11-27 10:16:54 Wed
@@ -1545,3 +1546,63 @@ localhost:3000,/login,POST,2024-11-27 10:17:04 Wed
 localhost:3000,/login,POST,2024-11-27 10:17:05 Wed
 localhost:3000,/login,POST,2024-11-27 10:17:07 Wed
 localhost:3000,/login,POST,2024-11-27 10:17:07 Wed
+=======
+localhost:3000,/favicon.ico,GET,2024-11-27 10:29:16 Wed
+localhost:3000,/login,POST,2024-11-27 10:29:44 Wed
+localhost:3000,/login,POST,2024-11-27 10:29:45 Wed
+localhost:3000,/login,POST,2024-11-27 10:30:06 Wed
+localhost:3000,/login,POST,2024-11-27 10:30:07 Wed
+localhost:3000,/login,POST,2024-11-27 10:30:08 Wed
+localhost:3000,/images/67469a12755bb5b49c8c30b7.jpg,GET,2024-11-27 10:30:09 Wed
+localhost:3000,/login,POST,2024-11-27 10:30:09 Wed
+localhost:3000,/login,POST,2024-11-27 10:30:10 Wed
+localhost:3000,/login,POST,2024-11-27 10:30:11 Wed
+localhost:3000,/login,POST,2024-11-27 10:30:12 Wed
+localhost:3000,/login,POST,2024-11-27 10:30:13 Wed
+localhost:3000,/login,POST,2024-11-27 10:30:14 Wed
+localhost:3000,/login,POST,2024-11-27 10:30:15 Wed
+localhost:3000,/login,POST,2024-11-27 10:30:16 Wed
+localhost:3000,/login,POST,2024-11-27 10:30:17 Wed
+localhost:3000,/login,POST,2024-11-27 10:30:18 Wed
+localhost:3000,/login,POST,2024-11-27 10:30:19 Wed
+localhost:3000,/login,POST,2024-11-27 10:30:19 Wed
+localhost:3000,/images/67469a12755bb5b49c8c30b7.jpg,GET,2024-11-27 10:30:21 Wed
+localhost:3000,/login,POST,2024-11-27 10:30:21 Wed
+localhost:3000,/login,POST,2024-11-27 10:30:21 Wed
+localhost:3000,/images/67469a12755bb5b49c8c30b7.jpg,GET,2024-11-27 10:30:22 Wed
+localhost:3000,/login,POST,2024-11-27 10:30:22 Wed
+localhost:3000,/login,POST,2024-11-27 10:30:23 Wed
+localhost:3000,/login,POST,2024-11-27 10:30:25 Wed
+localhost:3000,/login,POST,2024-11-27 10:30:26 Wed
+localhost:3000,/login,POST,2024-11-27 10:30:27 Wed
+localhost:3000,/login,POST,2024-11-27 10:30:28 Wed
+localhost:3000,/login,POST,2024-11-27 10:30:29 Wed
+localhost:3000,/images/67469a12755bb5b49c8c30b7.jpg,GET,2024-11-27 10:30:29 Wed
+localhost:3000,/login,POST,2024-11-27 10:30:29 Wed
+localhost:3000,/login,POST,2024-11-27 10:30:31 Wed
+localhost:3000,/login,POST,2024-11-27 10:30:31 Wed
+localhost:3000,/images/67469a12755bb5b49c8c30b7.jpg,GET,2024-11-27 10:30:32 Wed
+localhost:3000,/login,POST,2024-11-27 10:30:33 Wed
+localhost:3000,/login,POST,2024-11-27 10:30:35 Wed
+localhost:3000,/login,POST,2024-11-27 10:30:37 Wed
+localhost:3000,/images/67469a12755bb5b49c8c30b7.jpg,GET,2024-11-27 10:30:37 Wed
+localhost:3000,/login,POST,2024-11-27 10:30:38 Wed
+localhost:3000,/images/67469a12755bb5b49c8c30b7.jpg,GET,2024-11-27 10:30:38 Wed
+localhost:3000,/login,POST,2024-11-27 10:30:39 Wed
+localhost:3000,/login,POST,2024-11-27 10:30:40 Wed
+localhost:3000,/login,POST,2024-11-27 10:30:40 Wed
+localhost:3000,/login,POST,2024-11-27 10:30:41 Wed
+localhost:3000,/login,POST,2024-11-27 10:30:42 Wed
+localhost:3000,/login,POST,2024-11-27 10:30:44 Wed
+localhost:3000,/login,POST,2024-11-27 10:30:44 Wed
+localhost:3000,/images/67469a12755bb5b49c8c30b7.jpg,GET,2024-11-27 10:30:45 Wed
+localhost:3000,/login,POST,2024-11-27 10:30:45 Wed
+localhost:3000,/login,POST,2024-11-27 10:30:47 Wed
+localhost:3000,/login,POST,2024-11-27 10:30:48 Wed
+localhost:3000,/login,POST,2024-11-27 10:30:49 Wed
+localhost:3000,/images/67469a12755bb5b49c8c30b7.jpg,GET,2024-11-27 10:30:49 Wed
+localhost:3000,/login,POST,2024-11-27 10:30:50 Wed
+localhost:3000,/login,POST,2024-11-27 10:30:50 Wed
+localhost:3000,/images/67469a12755bb5b49c8c30b7.jpg,GET,2024-11-27 10:30:51 Wed
+localhost:3000,/login,POST,2024-11-27 10:30:52 Wed
+>>>>>>> ef907c608a5468c28634aba840f2e7c93ae6c204
