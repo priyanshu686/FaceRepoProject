@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import VideoElement from "../components/videoElement.jsx";
+import axios from "../utils/axios.js";
 // eslint-disable-next-line
 // import { compare_face } from "../utils/face_detect";
 import { useAppContext } from "../configs/AppContext";
@@ -10,6 +11,9 @@ import { getFaceData, getsnap } from "../utils/face_detect";
 
 export default function Login() {
     const { setUser, setError, video } = useAppContext();
+    const [username, setUsername] = React.useState("");
+    const [password, setPassword] = React.useState("");
+    const [logintype, setLogintype] = React.useState(true);
 
     async function handleLogin() {
         const img = await getsnap();
@@ -59,12 +63,35 @@ export default function Login() {
         }, 1000);
         return () => clearInterval(interval);
     }, [video, setError, setUser]);
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const user = {
+            id:username,
+            password,
+        };
+        const res = await axios.post("/login", user);
+        setUser(res.data.data);
+        return res.data.data;
+    }
     return (
         <>
             <div className="Login">
                 <h1>Login</h1>
+                <p>Use your face to login or use Email try Email and password if not found</p>
+                <button onClick={() => setLogintype(!logintype)}>{ logintype? '':'Face ' }Login</button>
                 <div className="login__container">
-                    <VideoElement />
+                    {
+                        logintype ?
+                            <VideoElement />
+                            :
+                            <div className="login_input">
+                                <form onSubmit={handleSubmit}>
+                                    <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
+                                    <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                                    <button type="submit">Login</button>
+                                </form>
+                            </div>
+                    }
                     <UserCard />
                 </div>
             </div>

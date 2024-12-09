@@ -1,12 +1,12 @@
+require('dotenv').config();
 const express = require('express');
-const dotenv = require('dotenv').config();
 const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const fs = require('fs');
 const { compare_face, loadModels } = require('./utils/faceapi');
 require('./configs/dbconnect')();
-const User = require('./modules/User');
+const User = require('./models/User');
 
 const port = process.env.PORT || 8000;
 app.use(cors());
@@ -16,8 +16,23 @@ app.use(express.static('public'));
 loadModels();
 
 app.post('/login', async(req, res) => {
-    const { fD } = req.body;
+    const { fD, id, password } = req.body;
     // console.log(fD);
+    if (id && password) {
+        const user = await User.findByCredentials(id, password);
+        console.log(user)
+        return res
+            .status(200)
+            .json({
+                data: {
+                    name: user.name,
+                    email: user.email,
+                    rollNo: user.rollNo,
+                    img: process.env.HOST + user.img.split('public')[1],
+                },
+                id: user._id,
+            });
+    }
     if (!fD || fD.length === 0) {
         return res.status(400).json({ message: 'Please provide face data' });
     }
@@ -57,8 +72,8 @@ app.get('/users', async (req, res) => {
 });
 
 app.post('/register', async (req, res) => {
-    const { name, email, rollNo, img, faceData } = req.body;
-    const user = new User({ name, email, rollNo, faceData });
+    const { name, email, rollNo, img, faceData, password } = req.body;
+    const user = new User({ name, email, rollNo, faceData, password });
     const imgPath = `public/images/${user._id}.jpg`;
     user.img = imgPath;
 
