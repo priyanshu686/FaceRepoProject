@@ -1,5 +1,5 @@
 const faceapi = require('face-api.js');
-const User = require('../modules/User');
+const User = require('../models/User');
 
 async function loadModels() {
     const MODEL_URL = (process.env.PUBLIC_URL || 'http://localhost:8000') + '/models';

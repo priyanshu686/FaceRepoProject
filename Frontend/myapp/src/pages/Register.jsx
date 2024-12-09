@@ -9,6 +9,7 @@ export default function Register() {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [rollNo, setRollNo] = useState('');
+    const [password, setPassword] = useState('');
     const [camera, setCamera] = useState(false);
     const [upload, setUpload] = useState(false);
     const [img, setImg] = useState(null);
@@ -16,7 +17,7 @@ export default function Register() {
 
     async function handleSubmit(e) {
         e.preventDefault();
-        if (!name || !email || !rollNo) {
+        if (!name || !email || !rollNo || !password) {
             setError({
                 type: "danger",
                 message: "Please fill all the fields",
@@ -45,7 +46,7 @@ export default function Register() {
             document.getElementsByTagName("input")[0].value = "";
             return;
         }
-        await setUser({ name, email, rollNo, img, faceData });
+        await setUser({ name, email, rollNo, password, img, faceData });
         setError({
             type: "success",
             message: "User registered successfully",
@@ -56,6 +57,7 @@ export default function Register() {
         setName('');
         setEmail('');
         setRollNo('');
+        setPassword('');
         setCamera(false);
         setUpload(false);
     }
@@ -136,6 +138,7 @@ export default function Register() {
                         <input type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} />
                         <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
                         <input type="text" placeholder="Roll No" value={rollNo} onChange={(e) => setRollNo(e.target.value)} />
+                        <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
                         {!img && <button type="button" onClick={handleImg}>Upload</button>}
                         <button type="submit">Register</button>
                     </form>

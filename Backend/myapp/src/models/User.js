@@ -51,6 +51,18 @@ UserSchema.pre('save', async function (next) {
     next();
 });
 
+UserSchema.statics.findByCredentials = async (email, password) => {
+    const user = await User.findOne({ email: email });
+    if (!user) {
+        throw new Error('Invalid login credentials');
+    }
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch) {
+        throw new Error('Invalid login credentials');
+    }
+    return user;
+}
+
 UserSchema.methods.compare = async function (password) {
     const user = this;
     return await bcrypt.compare(password, user.password);
