@@ -16,6 +16,7 @@ app.use(express.static('public'));
 loadModels();
 
 app.post('/login', async(req, res) => {
+    try{
     const { fD, id, password } = req.body;
     // console.log(fD);
     if (id && password) {
@@ -24,7 +25,7 @@ app.post('/login', async(req, res) => {
         return res
             .status(200)
             .json({
-                data: {
+                user: {
                     name: user.name,
                     email: user.email,
                     rollNo: user.rollNo,
@@ -60,6 +61,10 @@ app.post('/login', async(req, res) => {
         // console.log('error')
         return res.status(400).json({ message: error.message });
     }
+} catch(err){
+    console.log(err)
+    return res.status(400).json({ message: 'User not found' });
+}
 });
 
 app.get('/users', async (req, res) => {
