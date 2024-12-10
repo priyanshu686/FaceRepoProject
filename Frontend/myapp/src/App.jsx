@@ -10,15 +10,15 @@ const ErrorHandler = React.lazy(() => import("./components/ErrorHandler.jsx"));
 
 function App() {
   const [user, setUser] = useState(null);
-    const [err, setError] = useState(null);
-    const video = React.useRef(null);
+  const [err, setError] = useState(null);
+  const video = React.useRef(null);
 
   const values = {
     user,
     setUser,
     err,
-      setError,
-        video,
+    setError,
+    video,
   };
 
   useEffect(() => {
@@ -31,11 +31,11 @@ function App() {
 
   return (
     <ErrorBoundary>
-      <React.Suspense fallback={<div>Loading...</div>}>
-        <div className="App">
-          <AppProvider values={values}>
+      <div className="App">
+        <AppProvider values={values}>
+          <Navbar />
+          <React.Suspense fallback={<div id="Loader"><div className="child"></div></div>}>
             <ErrorHandler />
-            <Navbar />
             <main id="main">
               <Routes>
                 <Route path="/" element={<Home />} />
@@ -44,9 +44,9 @@ function App() {
                 <Route path="*" element={<div>Not Found</div>} />
               </Routes>
             </main>
-          </AppProvider>
-        </div>
-      </React.Suspense>
+          </React.Suspense>
+        </AppProvider>
+      </div>
     </ErrorBoundary>
   );
 }

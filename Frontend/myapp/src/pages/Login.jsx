@@ -13,7 +13,7 @@ export default function Login() {
     const { setUser, setError, video } = useAppContext();
     const [username, setUsername] = React.useState("");
     const [password, setPassword] = React.useState("");
-    const [logintype, setLogintype] = React.useState(true);
+    const [logintype, setLogintype] = React.useState(false);
 
     async function handleLogin() {
         const img = await getsnap();
@@ -66,7 +66,7 @@ export default function Login() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const user = {
-            id:username,
+            id: username,
             password,
         };
         const res = await axios.post("/login", user);
@@ -77,22 +77,35 @@ export default function Login() {
         <>
             <div className="Login">
                 <h1>Login</h1>
-                <p>Use your face to login or use Email try Email and password if not found</p>
-                <button onClick={() => setLogintype(!logintype)}>{ logintype? '':'Face ' }Login</button>
+                <p>Use your face to login or use Email and password if not found</p>
+                <button type="button" onClick={() => setLogintype(!logintype)}>
+                    {logintype ? 'Email' : 'Face'} Login
+                </button>
                 <div className="login__container">
-                    {
-                        logintype ?
+                    <div className="video_container">
+                        {logintype ? (
                             <VideoElement />
-                            :
-                            <div className="login_input">
+                        ) : (
+                            <div className="form_section">
                                 <form onSubmit={handleSubmit}>
-                                    <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
-                                    <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                                    <input
+                                        type="text"
+                                        placeholder="Username"
+                                        value={username}
+                                        onChange={(e) => setUsername(e.target.value)}
+                                    />
+                                    <input
+                                        type="password"
+                                        placeholder="Password"
+                                        value={password}
+                                        onChange={(e) => setPassword(e.target.value)}
+                                    />
                                     <button type="submit">Login</button>
                                 </form>
                             </div>
-                    }
-                    <UserCard />
+                        )}
+                        <UserCard />
+                    </div>
                 </div>
             </div>
         </>
