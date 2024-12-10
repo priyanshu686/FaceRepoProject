@@ -121,7 +121,7 @@ export const stopVideo = () => {
 };
 
 export const getsnap = async () => {
-    if (!video) return;
+    if (!video && (typeof video !== HTMLVideoElement || typeof video !== HTMLCanvasElement || typeof video !== HTMLImageElement || typeof video !== HTMLMediaElement)) return;
     Array.from(document.querySelectorAll("canvas")).forEach((c) => c.remove());
     const canvas = document.createElement("canvas");
     canvas.width = video.videoWidth;

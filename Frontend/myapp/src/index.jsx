@@ -18,7 +18,7 @@ root.render(
   <React.StrictMode>
         <Router>
             { loadFace() &&
-                <Suspense fallback={<div>Loading...</div>}>
+                <Suspense fallback={<div id="Loader"><div className="child"></div></div>}>
                     <App />
                 </Suspense>
             }

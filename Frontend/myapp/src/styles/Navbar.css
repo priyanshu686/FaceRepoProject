@@ -1,32 +1,64 @@
-.navbar{
+.navbar {
     background-color: #333;
     color: white;
     padding: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative; /* Added for positioning child elements if needed */
 
-    h1{
+    h1 {
         font-size: 1.5rem;
     }
 
-    ul{
+    ul {
         display: flex;
         list-style: none;
+        padding: 0; /* Removed default padding */
+        margin: 0; /* Removed default margin */
     }
 
-    li{
-        margin-left: 10px;
+    li {
+        margin-left: 20px; /* Increased space between list items */
     }
 
-    a{
+    a {
         transition: all 0.3s ease-in;
         color: white;
         text-decoration: none;
+        font-weight: 500; /* Added font-weight for better visibility */
+        font-size: 1rem; /* Made font size a bit larger */
     }
 
-    a:hover{
+    a:hover {
         color: #b9b9b9;
         text-decoration: underline;
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 768px) {
+        .navbar {
+            flex-direction: column; /* Stack items vertically */
+            padding: 15px;
+        }
+
+        h1 {
+            margin-bottom: 10px; /* Add space below the heading */
+        }
+
+        ul {
+            flex-direction: column; /* Stack links vertically */
+            align-items: center;
+            width: 100%; /* Ensure full width for better alignment */
+        }
+
+        li {
+            margin-left: 0; /* Remove left margin on mobile */
+            margin-bottom: 10px; /* Add space between links */
+        }
+
+        a {
+            font-size: 1.2rem; /* Increase font size on smaller screens */
+        }
     }
 }

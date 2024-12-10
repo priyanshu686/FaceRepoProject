@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import VideoElement from "../components/videoElement.jsx";
 import { getImgData, detectimg, getsnap } from "../utils/face_detect";
 import { useAppContext } from "../configs/AppContext";
 import { setUser } from "../controls/axios_ctrl";
 import "../styles/Register.css";
+const VideoElement = React.lazy(()=>import('../components/videoElement'));
 
 export default function Register() {
     const [name, setName] = useState('');
@@ -26,7 +26,7 @@ export default function Register() {
             });
             return;
         }
-        if (!img) {
+        if (!img && (typeof img !== HTMLVideoElement || typeof img !== HTMLCanvasElement || typeof img !== HTMLImageElement || typeof img !== HTMLMediaElement)) {
             setError({
                 type: "danger",
                 message: "Please upload an image",
@@ -73,7 +73,7 @@ export default function Register() {
         }
         reader.readAsDataURL(file);
     }
-    const captureImg = async() => {
+    const captureImg = async () => {
         const image = await getsnap();
         // const image = await loadModels(getsnap);
         // console.log(image);
@@ -89,7 +89,7 @@ export default function Register() {
         if (img) {
             setUpload(false);
             const imgElement = document.getElementById("FaceImg");
-            const interval = setInterval(async() => {
+            const interval = setInterval(async () => {
                 if (imgElement.complete) {
                     const result = await detectimg(imgElement);
                     // const result = await loadModels(await detectimg(imgElement));
@@ -114,34 +114,38 @@ export default function Register() {
                     }
                 }
             }, 200);
-        } 
+        }
     }, [img, setError]);
     return (
         <div className="Register">
             <h1>Register</h1>
             <div className="container-l">
-                { camera &&
-                    <VideoElement />
-                }
-                <div className="container">
-                    {upload &&
-                        <div className="upload">
-                            {!camera && <input type="file" accept="image/*" onChange={handleImgChange}/>}
-                            <button type="button" onClick={() => {
-                                if (!camera) setCamera(true);
-                                else captureImg();
-                            }}>Capture</button>
-                        </div>
+                <div className="video_section">
+                    {camera &&
+                    <React.Suspense fallback={<div id="Loader"><div className="child"></div></div>}>
+                        <VideoElement />
+                    </React.Suspense>
                     }
-                    <form onSubmit={handleSubmit}>
-                        {img && <img id="FaceImg" src={img} alt="img" />}
-                        <input type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} />
-                        <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
-                        <input type="text" placeholder="Roll No" value={rollNo} onChange={(e) => setRollNo(e.target.value)} />
-                        <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
-                        {!img && <button type="button" onClick={handleImg}>Upload</button>}
-                        <button type="submit">Register</button>
-                    </form>
+                    <div className="container">
+                        {upload &&
+                            <div className="upload">
+                                {!camera && <input type="file" accept="image/*" onChange={handleImgChange} />}
+                                <button type="button" onClick={() => {
+                                    if (!camera) setCamera(true);
+                                    else captureImg();
+                                }}>Capture</button>
+                            </div>
+                        }
+                        <form onSubmit={handleSubmit}>
+                            {img && <img id="FaceImg" src={img} alt="img" />}
+                            <input type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} />
+                            <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                            <input type="text" placeholder="Roll No" value={rollNo} onChange={(e) => setRollNo(e.target.value)} />
+                            <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                            {!img && <button type="button" onClick={handleImg}>Upload</button>}
+                            <button type="submit">Register</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>

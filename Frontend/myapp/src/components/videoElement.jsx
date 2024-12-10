@@ -9,12 +9,17 @@ export async function getSnap() {
 
 export default function VideoElement() {
   const { video } = useAppContext();
+  const ref = React.useRef();
+  const [loaded, setLoaded]= React.useState(false);
 
-  useEffect(() => {
+  const func = React.useCallback(() => {
     async function __init() {
+      console.log('loading')
         //   await init();
+        setLoaded(false)
         await loadModels(init);
       trackChanges();
+      setLoaded(true)
     }
 
     const handleVisibilityChange = () => {
@@ -42,14 +47,32 @@ export default function VideoElement() {
     };
   }, [video]);
 
+  useEffect(()=>{
+    if(ref.current){
+      // console.log(ref.current)
+      ref.current.style.display = "block"
+      ref.current.style.position = "sticky"
+      setLoaded(true)
+      func()
+    }
+  },[ref]);
+
   return (
     <div className="video_container">
+      {
+        !loaded &&
+        <div id="Loader"><div className="child"></div></div>
+      }
       <video
         id="facecam"
         width="680"
         height="560"  
         autoPlay
         muted
+        style={{
+          display:"none"
+        }}
+        ref={ref}
       ></video>
     </div>
   );
