@@ -69,9 +69,23 @@ export default function Login() {
             id: username,
             password,
         };
-        const res = await axios.post("/login", user);
-        setUser(res.data.data);
-        return res.data.data;
+        try{
+            const res = await axios.post("/login", user);
+            if(res.data.user){
+                setUser(res.data.user)
+            }
+            else {
+                console.log(res.data)
+                setError({
+                    message: res.data.data,
+                    type: "error",
+                    status: res.status
+                })
+            }
+            return res.data.data;
+        }catch(err){
+
+        }
     }
     return (
         <>
